@@ -52,6 +52,12 @@ mkdir -p "$HOME/.config"
 backup_if_exists "$HOME/.config/nvim"
 link_file "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 
+# Install tmux configuration
+echo ""
+echo "Installing tmux configuration..."
+backup_if_exists "$HOME/.config/tmux"
+link_file "$DOTFILES_DIR/tmux" "$HOME/.config/tmux"
+
 echo ""
 echo -e "${GREEN}Installation complete!${NC}"
 echo ""

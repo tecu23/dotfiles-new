@@ -11,6 +11,8 @@ dotfiles/
 ├── install.sh       # Installation script
 ├── nvim/            # Neovim config (git submodule)
 │   └── init.lua
+├── tmux/            # Tmux config (git submodule)
+│   └── tmux.conf
 └── zsh/
     └── .zshrc       # Zsh configuration
 ```
@@ -78,51 +80,53 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-## Working with Submodules (Neovim Config)
+## Working with Submodules (Neovim & Tmux)
 
-The neovim configuration is managed as a git submodule, which means it's a separate repository.
+Both neovim and tmux configurations are managed as git submodules, which means they are separate repositories.
 
-**Note:** This submodule is configured to track the `main` branch, so it will automatically pull the latest changes when updated.
+**Note:** These submodules are configured to track the `main` branch, so they will automatically pull the latest changes when updated.
 
-### Updating Neovim Config
+### Updating Submodule Configs
 
 ```bash
-# Edit your nvim config (changes are in the submodule)
+# Edit your config (changes are in the submodule)
 nvim ~/.config/nvim/init.lua
+# or
+nvim ~/.config/tmux/tmux.conf
 
 # Commit changes in the submodule
-cd ~/dotfiles/nvim
+cd ~/dotfiles/nvim  # or ~/dotfiles/tmux
 git add .
-git commit -m "Update neovim config"
+git commit -m "Update config"
 git push
 
 # Update the dotfiles repo to track the new submodule commit
 cd ~/dotfiles
-git add nvim
-git commit -m "Update nvim submodule"
+git add nvim  # or git add tmux
+git commit -m "Update nvim submodule"  # or "Update tmux submodule"
 git push
 ```
 
 ### Pulling Latest Changes from Main
 
-To get the latest nvim config from the `main` branch:
+To get the latest configs from the `main` branch:
 
 ```bash
 cd ~/dotfiles
 git pull
-git submodule update --remote --merge  # Pulls latest from main branch
+git submodule update --remote --merge  # Pulls latest from main branch for all submodules
 ```
 
 This will:
 1. Pull latest dotfiles changes
-2. Update nvim submodule to latest commit on `main`
-3. Update the commit reference in dotfiles repo
+2. Update all submodules (nvim, tmux) to latest commit on `main`
+3. Update the commit references in dotfiles repo
 
-After updating, commit the new submodule reference:
+After updating, commit the new submodule references:
 
 ```bash
-git add nvim
-git commit -m "Update nvim to latest main"
+git add nvim tmux
+git commit -m "Update submodules to latest main"
 git push
 ```
 

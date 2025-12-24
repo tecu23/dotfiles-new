@@ -2,3 +2,7 @@
 	path = nvim
 	url = git@github.com:tecu23/nvim-config.git
 	branch = main
+[submodule "tmux"]
+	path = tmux
+	url = git@github.com:tecu23/tmux.git
+	branch = main
