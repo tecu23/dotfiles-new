@@ -7,7 +7,7 @@ Personal configuration files and settings for development environment.
 Clone this repository to your home directory:
 
 ```bash
-git clone <repository-url> ~/dotfiles
+git clone git@github.com:tecu23/dotfiles-new.git ~/dotfiles
 ```
 
 ## Usage
