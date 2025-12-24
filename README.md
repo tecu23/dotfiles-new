@@ -7,10 +7,14 @@ Personal configuration files and settings for development environment.
 ```
 dotfiles/
 ├── README.md
+├── .gitignore       # Gitignore for dotfiles repo
 ├── .gitmodules      # Git submodule configuration
 ├── install.sh       # Installation script
 ├── ghostty/
 │   └── config       # Ghostty terminal configuration
+├── git/
+│   ├── .gitconfig   # Git user configuration
+│   └── ignore       # Global gitignore
 ├── nvim/            # Neovim config (git submodule)
 │   └── init.lua
 ├── tmux/            # Tmux config (git submodule)
@@ -55,6 +59,23 @@ source ~/.zshrc
 ```
 
 ## Configuration Details
+
+### Git Configuration
+
+**`.gitconfig`** - Git user settings:
+- User name and email (uses GitHub private email)
+- HTTPS to SSH URL rewrite for GitHub repositories
+- Prevents exposing your personal email in commits
+
+**`ignore`** (global gitignore):
+- macOS files (`.DS_Store`)
+- Linux/Windows system files
+- Editor temporary files (`.swp`, `.swo`, etc.)
+- IDE directories (`.vscode`, `.idea`)
+- Log files
+- Claude settings
+
+All git commits will use your GitHub private email (`74561515+tecu23@users.noreply.github.com`) to maintain privacy.
 
 ### Zsh Configuration
 

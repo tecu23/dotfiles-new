@@ -38,6 +38,16 @@ link_file() {
     echo -e "${GREEN}Linked: $target -> $source${NC}"
 }
 
+# Install git configuration
+echo ""
+echo "Installing git configuration..."
+backup_if_exists "$HOME/.gitconfig"
+link_file "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
+
+mkdir -p "$HOME/.config/git"
+backup_if_exists "$HOME/.config/git/ignore"
+link_file "$DOTFILES_DIR/git/ignore" "$HOME/.config/git/ignore"
+
 # Install zsh configuration
 echo ""
 echo "Installing zsh configuration..."
