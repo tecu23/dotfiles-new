@@ -7,18 +7,27 @@ Personal configuration files and settings for development environment.
 ```
 dotfiles/
 ├── README.md
+├── .gitmodules      # Git submodule configuration
 ├── install.sh       # Installation script
+├── nvim/            # Neovim config (git submodule)
+│   └── init.lua
 └── zsh/
     └── .zshrc       # Zsh configuration
 ```
 
 ## Setup
 
-1. Clone this repository:
+1. Clone this repository (with submodules):
 
 ```bash
-git clone git@github.com:tecu23/dotfiles-new.git ~/dotfiles
+git clone --recurse-submodules git@github.com:tecu23/dotfiles-new.git ~/dotfiles
 cd ~/dotfiles
+```
+
+If you already cloned without submodules, initialize them:
+
+```bash
+git submodule update --init --recursive
 ```
 
 2. Run the installation script:
@@ -64,9 +73,41 @@ git push
 ### Deploying to a New Machine
 
 ```bash
-git clone git@github.com:tecu23/dotfiles-new.git ~/dotfiles
+git clone --recurse-submodules git@github.com:tecu23/dotfiles-new.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh
+```
+
+## Working with Submodules (Neovim Config)
+
+The neovim configuration is managed as a git submodule, which means it's a separate repository.
+
+### Updating Neovim Config
+
+```bash
+# Edit your nvim config (changes are in the submodule)
+nvim ~/.config/nvim/init.lua
+
+# Commit changes in the submodule
+cd ~/dotfiles/nvim
+git add .
+git commit -m "Update neovim config"
+git push
+
+# Update the dotfiles repo to track the new submodule commit
+cd ~/dotfiles
+git add nvim
+git commit -m "Update nvim submodule"
+git push
+```
+
+### Pulling Latest Changes
+
+```bash
+# Pull dotfiles changes including submodule updates
+cd ~/dotfiles
+git pull
+git submodule update --remote --merge
 ```
 
 ## Adding More Configurations
@@ -77,3 +118,9 @@ To add new dotfiles:
 2. Copy your config into it
 3. Update `install.sh` to symlink the new file
 4. Run `./install.sh` to create the symlink
+
+To add a new submodule:
+
+1. `git submodule add <repo-url> <directory-name>`
+2. Update `install.sh` to symlink the directory
+3. Commit `.gitmodules` and the new submodule

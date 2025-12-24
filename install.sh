@@ -44,6 +44,14 @@ echo "Installing zsh configuration..."
 backup_if_exists "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 
+# Install neovim configuration
+echo ""
+echo "Installing neovim configuration..."
+# Ensure .config directory exists
+mkdir -p "$HOME/.config"
+backup_if_exists "$HOME/.config/nvim"
+link_file "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+
 echo ""
 echo -e "${GREEN}Installation complete!${NC}"
 echo ""
