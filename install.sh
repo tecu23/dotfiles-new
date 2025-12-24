@@ -47,6 +47,18 @@ link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 backup_if_exists "$HOME/.zprofile"
 link_file "$DOTFILES_DIR/zsh/.zprofile" "$HOME/.zprofile"
 
+# Install Oh My Zsh custom theme
+if [ -d "$HOME/.oh-my-zsh" ]; then
+    echo ""
+    echo "Installing Oh My Zsh custom theme..."
+    mkdir -p "$HOME/.oh-my-zsh/custom/themes"
+    backup_if_exists "$HOME/.oh-my-zsh/custom/themes/pi.zsh-theme"
+    link_file "$DOTFILES_DIR/zsh/themes/pi.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/pi.zsh-theme"
+else
+    echo ""
+    echo -e "${YELLOW}Skipping Oh My Zsh theme (Oh My Zsh not installed)${NC}"
+fi
+
 # Install neovim configuration
 echo ""
 echo "Installing neovim configuration..."

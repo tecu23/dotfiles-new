@@ -17,7 +17,9 @@ dotfiles/
 │   └── tmux.conf
 └── zsh/
     ├── .zprofile    # Zsh profile (loaded before .zshrc)
-    └── .zshrc       # Zsh configuration
+    ├── .zshrc       # Zsh configuration
+    └── themes/
+        └── pi.zsh-theme  # Custom Oh My Zsh theme
 ```
 
 ## Setup
@@ -69,6 +71,15 @@ The zsh setup includes two files:
 - Shell plugins
 - Aliases and functions
 - Theme settings
+
+**Custom Oh My Zsh Theme (pi.zsh-theme)**:
+- Minimal, clean prompt design
+- Shows π symbol (green for success, red for failure)
+- Smart path display (shortens when inside git repos)
+- Git branch and status indicators
+- Based on work by [@shashankmehta](https://github.com/shashankmehta)
+
+The theme is automatically installed to `~/.oh-my-zsh/custom/themes/` if Oh My Zsh is present.
 
 ### Private/Machine-Specific Settings
 
