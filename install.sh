@@ -44,6 +44,9 @@ echo "Installing zsh configuration..."
 backup_if_exists "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 
+backup_if_exists "$HOME/.zprofile"
+link_file "$DOTFILES_DIR/zsh/.zprofile" "$HOME/.zprofile"
+
 # Install neovim configuration
 echo ""
 echo "Installing neovim configuration..."

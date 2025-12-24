@@ -1,0 +1,11 @@
+# Machine-specific/private configuration files
+zsh/.zshrc.local
+zsh/private.zsh
+
+# OS-specific files
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~

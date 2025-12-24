@@ -16,6 +16,7 @@ dotfiles/
 ├── tmux/            # Tmux config (git submodule)
 │   └── tmux.conf
 └── zsh/
+    ├── .zprofile    # Zsh profile (loaded before .zshrc)
     └── .zshrc       # Zsh configuration
 ```
 
@@ -49,6 +50,49 @@ The script will:
 
 ```bash
 source ~/.zshrc
+```
+
+## Configuration Details
+
+### Zsh Configuration
+
+The zsh setup includes two files:
+
+**`.zprofile`** - Environment setup (loaded first):
+- NVM (Node Version Manager) initialization
+- Homebrew environment setup
+- Additional PATH configurations
+- Go private repository settings
+
+**`.zshrc`** - Shell configuration (loaded after .zprofile):
+- Oh My Zsh configuration
+- Shell plugins
+- Aliases and functions
+- Theme settings
+
+### Private/Machine-Specific Settings
+
+For machine-specific or private configuration (API keys, work settings, etc.), create a `private.zsh` file:
+
+```bash
+# Create the file
+touch ~/dotfiles/zsh/private.zsh
+
+# Add your private settings
+echo 'export GOPRIVATE=github.com/your-org' >> ~/dotfiles/zsh/private.zsh
+```
+
+This file is automatically:
+- ✅ Sourced by `.zprofile` if it exists
+- ✅ Ignored by git (listed in `.gitignore`)
+- ✅ Never committed to the repository
+
+**Example `private.zsh` contents:**
+```bash
+# Private/local configuration
+export GOPRIVATE=github.com/algolia
+export SOME_API_KEY=your_key_here
+# Add any other machine-specific settings
 ```
 
 ## Usage
