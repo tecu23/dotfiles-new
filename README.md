@@ -82,6 +82,8 @@ cd ~/dotfiles
 
 The neovim configuration is managed as a git submodule, which means it's a separate repository.
 
+**Note:** This submodule is configured to track the `main` branch, so it will automatically pull the latest changes when updated.
+
 ### Updating Neovim Config
 
 ```bash
@@ -101,13 +103,27 @@ git commit -m "Update nvim submodule"
 git push
 ```
 
-### Pulling Latest Changes
+### Pulling Latest Changes from Main
+
+To get the latest nvim config from the `main` branch:
 
 ```bash
-# Pull dotfiles changes including submodule updates
 cd ~/dotfiles
 git pull
-git submodule update --remote --merge
+git submodule update --remote --merge  # Pulls latest from main branch
+```
+
+This will:
+1. Pull latest dotfiles changes
+2. Update nvim submodule to latest commit on `main`
+3. Update the commit reference in dotfiles repo
+
+After updating, commit the new submodule reference:
+
+```bash
+git add nvim
+git commit -m "Update nvim to latest main"
+git push
 ```
 
 ## Adding More Configurations

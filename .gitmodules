@@ -1,3 +1,4 @@
 [submodule "nvim"]
 	path = nvim
 	url = git@github.com:tecu23/nvim-config.git
+	branch = main
