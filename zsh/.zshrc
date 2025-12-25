@@ -110,6 +110,7 @@ export TERM=xterm-256color
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 
 # Initialize mise for version management (node, ruby, python, go, etc.)
 eval "$(mise activate zsh)"
