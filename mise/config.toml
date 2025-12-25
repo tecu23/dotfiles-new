@@ -34,6 +34,10 @@ always_keep_download = true
 
 # Tasks
 [tasks]
+
+[tools]
+node = "lts"
+ruby = "3.3"
 # You can define custom tasks here
 # Example:
 # [tasks.test]

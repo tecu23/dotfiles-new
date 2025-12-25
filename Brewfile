@@ -44,7 +44,6 @@ brew "tree"
 brew "watch"
 
 # Cloud tools
-brew "google-cloud-sdk"
 brew "grpcurl"
 
 # Kubernetes tools
