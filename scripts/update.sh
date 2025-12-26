@@ -111,6 +111,24 @@ fi
 # Update mise
 print_section "Updating mise"
 if command -v mise &> /dev/null; then
+    # Check if mise was installed via package manager
+    if brew list mise &> /dev/null; then
+        print_section "Updating mise via Homebrew"
+        if brew upgrade mise; then
+            echo -e "${GREEN}✓ mise updated via Homebrew${NC}"
+        else
+            echo -e "${YELLOW}⚠ mise may already be at latest version${NC}"
+        fi
+    else
+        # Try self-update for standalone installations
+        if mise self-update 2>&1 | grep -q "cannot update"; then
+            echo -e "${YELLOW}⚠ mise is installed via a package manager${NC}"
+            echo "  Use your package manager to update mise"
+        else
+            echo -e "${GREEN}✓ mise self-updated${NC}"
+        fi
+    fi
+
     # Upgrade mise tools
     print_section "Upgrading mise Tools"
     if mise upgrade; then
@@ -159,4 +177,7 @@ echo -e "${GREEN}✓ All updates complete${NC}"
 echo ""
 echo -e "${YELLOW}Note:${NC} You may need to restart your terminal or run:"
 echo "  source ~/.zshrc"
+echo ""
+echo -e "${BLUE}Tip:${NC} Run the health check to verify everything:"
+echo "  $DOTFILES_DIR/scripts/doctor.sh"
 echo ""
