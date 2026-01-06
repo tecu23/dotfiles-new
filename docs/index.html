@@ -116,9 +116,13 @@
   <div id="app">Loading...</div>
 
   <script>
+    // Detect if we're on GitHub Pages or localhost
+    const isGitHubPages = window.location.hostname === 'tecu23.github.io';
+
     window.$docsify = {
       name: '🚀 Dev Cheatsheets',
-      repo: 'tecu23/dotfiles-new',
+      repo: 'tecu23/dotfiles',
+      basePath: isGitHubPages ? '/dotfiles/' : '/',
       loadSidebar: true,
       subMaxLevel: 3,
       homepage: 'README.md',
