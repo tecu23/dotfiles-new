@@ -119,3 +119,7 @@ eval "$(mise activate zsh)"
 [ -f ~/dotfiles/zsh/aliases.zsh ] && source ~/dotfiles/zsh/aliases.zsh
 [ -f ~/dotfiles/zsh/functions.zsh ] && source ~/dotfiles/zsh/functions.zsh
 export NPM_TOKEN=dummy
+eval "$(mise hook-env)"
+
+# Load local machine-specific config (not tracked in git)
+[ -f ~/dotfiles/zsh/.zshrc.local ] && source ~/dotfiles/zsh/.zshrc.local

@@ -9,3 +9,4 @@ zsh/private.zsh
 *.swp
 *.swo
 *~
+zsh/.zshrc.local
